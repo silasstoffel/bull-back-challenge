@@ -4,8 +4,8 @@ import path  from 'path';
 import { DataSource } from "typeorm";
 import { Account } from '../../../../modules/accounts/domain/account.entity';
 
-const dist = path.resolve(__dirname, '..', '..', '..', '..', '..', 'dist');
-const migrationDir = `${dist}/shared/infra/database/migrations/*.js`
+const dir = path.resolve(__dirname, '..', '..', '..', '..', '..', 'src');
+const migrationDir = `${dir}/shared/infra/database/migrations/*.{ts,js}`
 
 
 export const AppDataSource = new DataSource({

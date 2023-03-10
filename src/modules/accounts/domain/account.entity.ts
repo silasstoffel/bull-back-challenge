@@ -33,7 +33,7 @@ export class Account {
     public hash!: string;
 
     @Column({ type: "boolean" })
-    public blocked?: boolean = false;
+    public blocked = false;
 
     @CreateDateColumn()
     public createdAt?: Date;

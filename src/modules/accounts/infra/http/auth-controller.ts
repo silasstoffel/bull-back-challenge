@@ -4,7 +4,6 @@ import {container} from "tsyringe";
 import { AuthenticateAccountUseCase } from "../../use-cases/authenticate-account-use-case";
 import { AuthException } from "./auth-exceptions";
 
-
 export class AuthController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { email, password } = req.body;

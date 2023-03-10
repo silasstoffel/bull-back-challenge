@@ -34,7 +34,7 @@ export class AuthenticateAccountUseCase {
             throw new InvalidCredentialsException();
         }
 
-        if (account.blocked) {
+        if (account && account.blocked) {
             throw new BlockedAccountException();
         }
 
