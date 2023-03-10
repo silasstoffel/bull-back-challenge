@@ -1,6 +1,7 @@
 
 import { Response } from "express";
 import { AccountNotFoundException } from "../../domain/exceptions/account-not-found.exception";
+import { BlockedAccountException } from "../../domain/exceptions/blocked-account.exception";
 import { InvalidCredentialsException } from "../../domain/exceptions/invalid-credentials.exception";
 
 export class AuthException {
@@ -18,7 +19,14 @@ export class AuthException {
             return res.status(404).json({ code, message });
         }
 
+        if (error instanceof BlockedAccountException) {
+            const err = error as BlockedAccountException;
+            const { code, message } = err;
+            return res.status(403).json({ code, message });
+        }
+
+
         const e = error as Error;
-        return res.status(500).json({ code: 'INTERNAL_SERVER_ERROR', message: 'Internal server error.este', error: e.message});
+        return res.status(500).json({ code: 'INTERNAL_SERVER_ERROR', message: 'Internal server error.este' });
     }
 }

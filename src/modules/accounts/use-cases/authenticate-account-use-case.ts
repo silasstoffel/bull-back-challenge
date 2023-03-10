@@ -1,6 +1,7 @@
 import { injectable, inject } from "tsyringe";
 
 import { AccountRepositoryInterface } from "../domain/account-repository.interface";
+import { BlockedAccountException } from "../domain/exceptions/blocked-account.exception";
 import { InvalidCredentialsException } from "../domain/exceptions/invalid-credentials.exception";
 import { AuthenticateNotifierServiceInterface } from "../domain/services/authenticate-notifier-service.interface";
 import { PasswordManagerServiceInterface } from "../domain/services/password-manager-service.interface";
@@ -31,6 +32,10 @@ export class AuthenticateAccountUseCase {
 
         if (!(await this.passwordManagerService.verify(authenticateInput.password, account.hash))) {
             throw new InvalidCredentialsException();
+        }
+
+        if (account.blocked) {
+            throw new BlockedAccountException();
         }
 
         const token = await this.tokenManagerService.create(String(account.id));
