@@ -1,6 +1,6 @@
 
 import { injectable } from "tsyringe";
-import { sign, verify } from "jsonwebtoken";
+import { JwtPayload, sign, verify } from "jsonwebtoken";
 import { TokenManagerServiceInterface } from "../../domain/services/token-manager-service.interface";
 import { VerifyTokenOutput } from "../../domain/services/verify-token.output";
 
@@ -23,6 +23,7 @@ export class TokenManagerService implements TokenManagerServiceInterface {
     }
 
     public async verify(jwt: string): Promise<VerifyTokenOutput> {
-        return verify(jwt, this.secret) as VerifyTokenOutput;
+        const { iss, exp, sub, id } = verify(jwt, this.secret) as JwtPayload;
+        return { iss, exp, sub, id } as unknown as VerifyTokenOutput;
     }
 }

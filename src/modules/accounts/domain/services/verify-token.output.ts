@@ -1,5 +1,6 @@
 export interface VerifyTokenOutput {
-    subject: string;
-    issuer: string;
-    expiresIn: string;
+    sub: string;
+    iss: string;
+    exp: string;
+    id: string;
 }
