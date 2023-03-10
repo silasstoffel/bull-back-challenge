@@ -7,7 +7,8 @@
     "build": "npx tsc",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn ./src/shared/infra/http/server.ts",
     "start": "node ./dist/shared/infra/http/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev2": "concurrently \"npx tsc --watch\" \"nodemon -q dist/shared/infra/http/server.js\""
   },
   "keywords": [
     "backend",
@@ -25,6 +26,7 @@
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
+    "concurrently": "^7.6.0",
     "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",

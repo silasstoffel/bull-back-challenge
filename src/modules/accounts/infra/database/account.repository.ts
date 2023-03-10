@@ -14,6 +14,10 @@ export class AccountRepository implements AccountRepositoryInterface {
         this.repository = AppDataSource.getRepository(Account);
     }
 
+    public async findById(id: string): Promise<Account | null> {
+        return this.repository.findOne({ where: { id }});
+    }
+
     public async findByEmail(email: string): Promise<Account | null> {
         return this.repository.findOne({ where: { email }});
     }

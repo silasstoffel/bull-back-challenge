@@ -1,9 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, IsNull } from "typeorm"
 
 @Entity()
 export class Account {
     @PrimaryGeneratedColumn('uuid')
     public id?: string;
+
+    @Column({
+        length: 80,
+        type: "varchar",
+        nullable: false,
+    })
+    public name!: string | null;
 
     @Column({
         length: 60,

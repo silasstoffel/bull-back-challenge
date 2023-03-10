@@ -1,7 +1,7 @@
 import { injectable, inject } from "tsyringe";
 
 import { AccountRepositoryInterface } from "../domain/account-repository.interface";
-import { InvalidCredentialsException } from "../domain/exceptions/invalid-credentials.exeception";
+import { InvalidCredentialsException } from "../domain/exceptions/invalid-credentials.exception";
 import { AuthenticateNotifierServiceInterface } from "../domain/services/authenticate-notifier-service.interface";
 import { PasswordManagerServiceInterface } from "../domain/services/password-manager-service.interface";
 import { TokenManagerServiceInterface } from "../domain/services/token-manager-service.interface";
@@ -37,6 +37,6 @@ export class AuthenticateAccountUseCase {
 
         await this.authenticateNotifierService.notify(account);
 
-        return { token };
+        return { token, roles:[] };
     }
 }

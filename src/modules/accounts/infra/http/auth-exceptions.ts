@@ -1,21 +1,24 @@
 
-import e, { Response } from "express";
-import { InvalidCredentialsException } from "../../domain/exceptions/invalid-credentials.exeception";
+import { Response } from "express";
+import { AccountNotFoundException } from "../../domain/exceptions/account-not-found.exception";
+import { InvalidCredentialsException } from "../../domain/exceptions/invalid-credentials.exception";
 
 export class AuthException {
     public static resolve(res: Response, error: unknown): Response {
+
         if (error instanceof InvalidCredentialsException) {
             const err = error as InvalidCredentialsException;
             const { code, message } = err;
-            return res.status(403).json({code, message});
+            return res.status(403).json({ code, message });
         }
 
-        if (error instanceof Error) {
-            const err = error as Error;
-            const { message } = err;
-            return res.status(403).json({ message});
+        if (error instanceof AccountNotFoundException) {
+            const err = error as AccountNotFoundException;
+            const { code, message } = err;
+            return res.status(404).json({ code, message });
         }
 
-        return res.status(500).json({ code: 'INTERNAL_SERVER_ERROR', message: 'Internal server error'});
+        const e = error as Error;
+        return res.status(500).json({ code: 'INTERNAL_SERVER_ERROR', message: 'Internal server error.este', error: e.message});
     }
 }
