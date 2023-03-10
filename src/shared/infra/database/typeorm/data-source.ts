@@ -21,4 +21,3 @@ export const AppDataSource = new DataSource({
     migrations: [migrationDir],
     migrationsRun: true,
 });
-

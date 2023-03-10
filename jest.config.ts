@@ -11,6 +11,15 @@ const config: Config = {
   setupFilesAfterEnv: [
     "<rootDir>/jest.setup.ts"
   ],
+  detectOpenHandles: false,
+  collectCoverage: true,
+  coveragePathIgnorePatterns: [
+    "node_modules",
+    "@types",
+    "src/shared/infra/database/migrations",
+    "migration.config.ts"
+  ],
+  collectCoverageFrom: ["src/**/*.ts"]
 };
 
 export default config;
