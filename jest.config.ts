@@ -12,7 +12,6 @@ const config: Config = {
     "<rootDir>/jest.setup.ts"
   ],
   detectOpenHandles: false,
-  collectCoverage: true,
   coveragePathIgnorePatterns: [
     "node_modules",
     "@types",
