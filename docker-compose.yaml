@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+
+    database:
+        image: postgres
+        container_name: 'bull-back-db'
+        ports:
+            - '5432:5432'
+        environment:
+            - POSTGRES_USER=bull
+            - POSTGRES_PASSWORD=bull
+            - POSTGRES_DB=bull
+        volumes:
+            - ./.volumes/postgres:/var/lib/postgresql
+        networks:
+            - default
+
+#    api:
+#        build: .
+#        container_name: 'rentx-api'
+#        ports:
+#            - '3333:3333'
+#            - '9229:9229'
+#        volumes:
+#            - .:/usr/app
+#        links:
+#            - database
+#            - redis
+#        depends_on:
+#            - database
+#            - redis
+#        networks:
+#            - default
