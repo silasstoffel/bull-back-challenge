@@ -17,7 +17,7 @@ import "../providers"
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin: process.env.ORIGIN_CORS || '*'}));
+app.use(cors({origin: process.env.ORIGIN_CORS ?? '*'}));
 
 app.use(router);
 
