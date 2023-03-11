@@ -18,6 +18,8 @@ Como não há cadastro de contas e como forma de auxiliar na operação, quando 
 
 Relação de contas para poder testar:
 
+**Senha para acesso todos usuários: 123456**
+
 ```json
 [
 	{
