@@ -16,7 +16,7 @@
 [typescript-image]: https://img.shields.io/badge/Typescript-blue?style=for-the-badge&logo=TypeScript&logoColor=white
 
 [Swagger-url]: https://swagger.io/
-[Swagger-image]: https://img.shields.io/badge/Swagger-orange?style=for-the-badge&logo=Swagger&logoColor=white
+[Swagger-image]: https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=Swagger&logoColor=black
 
 [Docker-url]: https://www.docker.com//
 [Docker-image]: https://img.shields.io/badge/Docker-blue?style=for-the-badge&logo=Docker&logoColor=white
