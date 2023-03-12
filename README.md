@@ -33,9 +33,9 @@ Backend technical challenge from toro investimentos
 
 Backend responsável por prover dados para SPA. Neste desafio, o user story escolhido foi a **TORO-001**.
 
-Como não há cadastro de contas e como forma de auxiliar na operação, quando a aplicação subir ela irá gerar 4 contas para testes. Um dessas contas estará bloqueada.
+Como não há cadastro de contas, e para auxiliar no teste, será gerado 4 contas para testes. Uma dessas contas estará bloqueada.
 
-**Conta bloqueada** é uma proposta extra para aumentar a segurança, no momento de autenticação efetuda pensei em enviar uma notificação (sms, push, email) para usuário dizendo que foi feita login e novo dispositivo onde ele pode não reconhecer o acesso e bloquear a conta. O bloqueio da conta em si não foi implementado é apenas uma proposta. Contas bloqueadas não podem acessar a plataforma.
+**Conta bloqueada** é uma proposta extra para aumentar a segurança, no momento de autenticação efetuda pensei em enviar uma notificação (sms, push, email) para usuário informando que foi feita login em determiado dispositivo onde ele pode não reconhecer o acesso e bloquear a conta. O bloqueio da conta em si não foi implementado é apenas uma proposta. Contas bloqueadas não podem acessar a plataforma.
 
 
 Relação de contas para poder testar:
