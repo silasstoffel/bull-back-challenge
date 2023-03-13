@@ -1,13 +1,12 @@
 import { initializeDataSource } from "../../../../../helpers/setup-data-source";
-import request, { agent as supertest } from 'supertest';
+import request from 'supertest';
 import { app } from "../../../../../../src/shared/infra/http/app";
 
 describe("LoadAccountController", () => {
 
-    let bearer: string;
+    let token: string;
     const name = "Account 3";
     const id = "6bc53670-8747-4245-bc6f-458cf735f476";
-    const httpClient = supertest(app);
 
     beforeAll(async () => {
         await initializeDataSource();
@@ -19,13 +18,15 @@ describe("LoadAccountController", () => {
             password: "123456"
         }).expect(200);
 
-        httpClient.auth(data.body.token, { type: 'bearer' })
+        token = data.body.token;
     });
 
     describe("when the credentials are correctly", () => {
         it('should return account info', async() => {
-            console.log(bearer);
-            const response = await httpClient.get('/auth/me');
+            const response = await request(app).get('/auth/me').set({
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }).send();
 
             expect(response.status).toBe(200);
             expect(response.body).toHaveProperty('id', id);
@@ -35,8 +36,8 @@ describe("LoadAccountController", () => {
 
     describe("when the bearer property is not valid or expired", () => {
         it('should return 401 http status', async() => {
-            bearer = "Bearer invalid-value"
-            await request(app).get('/auth/me').set({ Authorization: bearer }).expect(401);
+            const bearer = "Bearer invalid-value"
+            await request(app).get('/auth/me').set({ Authorization: bearer }).send().expect(401);
         });
     });
 

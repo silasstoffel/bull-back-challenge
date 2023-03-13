@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node ./dist/src/shared/infra/http/server.js",
     "test": "jest --runInBand ./tests/",
-    "test:coverage": "jest --runInBand --coverage ./tests/",
+    "test:coverage": "jest --runInBand --coverage ./tests/e2e",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/src/shared/infra/http/server.js\""
   },
   "keywords": [
