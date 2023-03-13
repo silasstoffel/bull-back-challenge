@@ -2,7 +2,7 @@ import { initializeDataSource } from "../../../../../helpers/setup-data-source";
 import request from 'supertest';
 import { app } from "../../../../../../src/shared/infra/http/app";
 
-describe.only("LoadAccountController", () => {
+describe("LoadAccountController", () => {
 
     let bearer: string;
     const name = "Account 3";
@@ -18,15 +18,18 @@ describe.only("LoadAccountController", () => {
             password: "123456"
         }).expect(200);
 
-        bearer = `${data.body.token}`;
+        bearer = `Bearer ${data.body.token}`;
     });
 
     describe("when the credentials are correctly", () => {
         it('should return account info', async() => {
             console.log(bearer);
             const response = await request(app).get('/auth/me')
-            //.set({ Authorization: bearer })
-            .auth(bearer, { type: 'bearer' });
+            .set("Authorization", bearer)
+            //.auth(bearer, { type: 'bearer' })
+            .expect(({ headers }) => {
+                console.log(headers);
+            });
 
             expect(response.status).toBe(200);
             expect(response.body).toHaveProperty('id', id);
