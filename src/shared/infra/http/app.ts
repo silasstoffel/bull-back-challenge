@@ -6,7 +6,10 @@ import { AppDataSource } from "../database/typeorm/data-source";
 
 
 (async () => {
-    //await AppDataSource.initialize();
+    const ignore = process.env?.IGNORE_INIT_DATA_SOURCE_CI && process.env.IGNORE_INIT_DATA_SOURCE_CI === 'true';
+    if (!ignore) {
+        await AppDataSource.initialize();
+    }
 })();
 
 import express from "express";
