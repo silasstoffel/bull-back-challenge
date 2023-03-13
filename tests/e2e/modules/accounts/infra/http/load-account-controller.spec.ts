@@ -38,7 +38,13 @@ describe("LoadAccountController", () => {
     describe("when the bearer property is not valid or expired", () => {
         it('should return 401 http status', async() => {
             const bearer = "Bearer invalid-value"
-            await request(app).get('/auth/me').set({ Authorization: bearer }).send().expect(401);
+            const response = await request(app)
+                .get('/auth/me')
+                .set({ Authorization: bearer })
+                .send();
+
+            expect(response.status).toBe(401);
+            expect(response.body).toHaveProperty('code', 'ACCESS_UNAUTHORIZED');
         });
     });
 
