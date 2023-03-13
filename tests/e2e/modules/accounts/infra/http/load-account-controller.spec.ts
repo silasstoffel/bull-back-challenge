@@ -44,7 +44,8 @@ describe("LoadAccountController", () => {
                 .send();
 
             expect(response.status).toBe(401);
-            expect(response.body).toHaveProperty('code', 'ACCESS_UNAUTHORIZED');
+            expect(response.body).toHaveProperty('code', 'ACCESS_UNAUTHORIZED_FAILURE');
+            expect(response.body).toHaveProperty('message', 'Unauthorized_Failure');
         });
     });
 
