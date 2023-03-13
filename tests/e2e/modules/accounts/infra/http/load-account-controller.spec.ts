@@ -1,5 +1,6 @@
-import { initializeDataSource } from "../../../../../helpers/setup-data-source";
 import request from 'supertest';
+
+import { initializeDataSource } from "../../../../../helpers/setup-data-source";
 import { app } from "../../../../../../src/shared/infra/http/app";
 
 describe("LoadAccountController", () => {

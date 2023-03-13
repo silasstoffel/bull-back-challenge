@@ -63,6 +63,9 @@ jobs:
         DB_PWD: bull
         DB_NAME: bull
         DB_LOGGING: true
+        JWT_SECRET: "JWT_SECRET"
+        JWT_EXPIRES: 1h
+        ORIGIN_CORS: "*"
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
