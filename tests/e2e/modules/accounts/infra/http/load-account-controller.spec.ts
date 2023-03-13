@@ -42,7 +42,7 @@ describe("LoadAccountController", () => {
 
             expect(response.status).toBe(401);
             expect(response.body).toHaveProperty('code', 'ACCESS_UNAUTHORIZED');
-            expect(response.body).toHaveProperty('message', 'Unauthorized.Forced');
+            expect(response.body).toHaveProperty('message', 'Unauthorized.');
         });
     });
 
