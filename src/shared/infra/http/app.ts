@@ -3,10 +3,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { AppDataSource } from "../database/typeorm/data-source";
-AppDataSource
-.initialize()
-.then(err => console.info('Database initialized.'))
-.catch(err => console.error('Connection failed. Detail: ', err.message));
+
+
+//AppDataSource.initialize().then(err => console.info('Database initialized.'))
+//.catch(err => console.error('Connection failed. Detail: ', err.message));
+
+(async () => {
+    //await AppDataSource.initialize();
+})();
 
 import express from "express";
 import cors from "cors";
