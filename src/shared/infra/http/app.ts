@@ -6,7 +6,9 @@ import { AppDataSource } from "../database/typeorm/data-source";
 
 
 (async () => {
-    await AppDataSource.initialize();
+    if (!AppDataSource.isInitialized) {
+        await AppDataSource.initialize();
+    }
 })();
 
 import express from "express";
