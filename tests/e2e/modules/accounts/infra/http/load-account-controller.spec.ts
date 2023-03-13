@@ -17,11 +17,11 @@ describe("LoadAccountController", () => {
         .send({
             email: "account3@bull.com.br",
             password: "123456"
-        }).expect(200);
+        });
 
         console.log('Auth Response: ', data.body);
         token = data.body.token;
-
+        expect(data.status).toBe(200);
     });
 
     describe("when the credentials are correctly", () => {
