@@ -7,7 +7,10 @@ export const initializeDataSource = async (): Promise<DataSource> => {
     // @see: https://github.com/typeorm/typeorm/issues/9109
     const dataSource = AppDataSource;
 
-    await dataSource.initialize();
+    if (!AppDataSource.isInitialized) {
+        await dataSource.initialize();
+    }
+
     Container.set(DataSource, dataSource);
 
     return dataSource;
