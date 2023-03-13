@@ -26,7 +26,20 @@ export class AuthException {
         }
 
 
-        const e = error as Error;
-        return res.status(500).json({ code: 'INTERNAL_SERVER_ERROR', message: 'Internal server error.', err: e.stack });
+        let detail = undefined;
+        let stack = undefined;
+
+        if (process.env.ENVIRONMENT === 'development') {
+            const exc = error as Error;
+            detail = exc.message;
+            stack = exc.stack;
+        }
+
+        return res.status(500).json({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'Internal server error.',
+            detail,
+            stack
+        });
     }
 }

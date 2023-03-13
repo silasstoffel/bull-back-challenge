@@ -19,7 +19,9 @@ describe("LoadAccountController", () => {
             password: "123456"
         }).expect(200);
 
+        console.log('Auth Response: ', data.body);
         token = data.body.token;
+
     });
 
     describe("when the credentials are correctly", () => {
