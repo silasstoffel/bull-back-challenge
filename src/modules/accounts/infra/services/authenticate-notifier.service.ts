@@ -9,6 +9,6 @@ import { AuthenticateNotifierServiceInterface } from "../../domain/services/auth
 export class AuthenticateNotifierService implements AuthenticateNotifierServiceInterface {
     public async notify(account: Account): Promise<void> {
         // fake implementation to include more security
-        console.log('Notifying Account by sms or e-mail or push.');
+        // Notifying Account by sms or e-mail or push.
     }
 }

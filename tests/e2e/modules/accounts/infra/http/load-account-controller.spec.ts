@@ -18,7 +18,7 @@ describe("LoadAccountController", () => {
             password: "123456"
         }).expect(200);
 
-        bearer = `Bearer ${data.body.token}`
+        bearer = `Bearer ${data.body.token}`;
     });
 
     describe("when the credentials are correctly", () => {
@@ -31,7 +31,7 @@ describe("LoadAccountController", () => {
     });
 
     describe("when the bearer property is not valid or expired", () => {
-        it('should return account info', async() => {
+        it('should return 401 http status', async() => {
             bearer = "Bearer invalid-value"
             await request(app).get('/auth/me').set({ Authorization: bearer }).expect(401);
         });
