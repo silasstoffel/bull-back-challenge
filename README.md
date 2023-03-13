@@ -98,6 +98,9 @@ npm i
 ```shell
 # linux/macOs
 $ sh ./scripts/shell.sh
+
+# or
+$ sh ./scripts/dev.sh #show real-time log (nodemon)
 ```
 Helper para linux/macOs (já faz tudo o que precisa)
 ```shell
@@ -105,7 +108,9 @@ $ sh ./scripts/shell.sh
 # it's already done. You should be able to access http://localhost:3001/health-check
 ```
 
-Outros sistemas operacionais
+Outros sistemas operacionais:
+
+Faça uma cópia `.env.example` e renomei para `.env` (Se for usar node local, mude `DB_HOST=bull-back-db`para `DB_HOST=localhost`)
 ```shell
 $ docker-compose up -d
 $ docker exec -it bull-back-api bash

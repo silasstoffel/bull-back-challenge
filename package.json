@@ -1,13 +1,13 @@
 {
   "name": "bull-back",
-  "version": "0.0.1s",
+  "version": "0.0.1",
   "description": "Service to support operation from bull-trader",
   "main": "./dist/src/shared/infra/http/server.js",
   "scripts": {
     "build": "npx tsc",
     "start": "node ./dist/src/shared/infra/http/server.js",
     "test": "jest --runInBand ./tests/",
-    "test:coverage": "jest --runInBand --coverage ./tests/",
+    "test:coverage": "jest --runInBand --coverage ./tests",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/src/shared/infra/http/server.js\""
   },
   "keywords": [
