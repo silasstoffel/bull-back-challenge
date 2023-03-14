@@ -1,5 +1,4 @@
-import { Router } from "express";
-import { Response, Request} from 'express';
+import { Router, Response, Request } from "express";
 
 const healthCheckRoute = Router();
 
