@@ -8,20 +8,17 @@ export class AuthException {
     public static resolve(res: Response, error: unknown): Response {
 
         if (error instanceof InvalidCredentialsException) {
-            const err = error as InvalidCredentialsException;
-            const { code, message } = err;
+            const { code, message } = error;
             return res.status(403).json({ code, message });
         }
 
         if (error instanceof AccountNotFoundException) {
-            const err = error as AccountNotFoundException;
-            const { code, message } = err;
+            const { code, message } = error;
             return res.status(404).json({ code, message });
         }
 
         if (error instanceof BlockedAccountException) {
-            const err = error as BlockedAccountException;
-            const { code, message } = err;
+            const { code, message } = error;
             return res.status(403).json({ code, message });
         }
 
