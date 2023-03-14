@@ -110,7 +110,7 @@ $ sh ./scripts/shell.sh
 
 Outros sistemas operacionais:
 
-Faça uma cópia `.env.example` e renomei para `.env` (Se for usar node local, mude `DB_HOST=bull-back-db`para `DB_HOST=localhost`)
+Faça uma cópia `.env.example` e renomeie para `.env` (Se for usar node local, mude `DB_HOST=bull-back-db`para `DB_HOST=localhost`)
 ```shell
 $ docker-compose up -d
 $ docker exec -it bull-back-api bash
@@ -136,7 +136,7 @@ Essa aplicação foi projetada seguindo alguns princípios e techs, tais como:
 
 - Clean Architeture
 - SOLID
-- RESTfull
+- RESTful
 - Object Calisthenics
 - Repositories
 - Unit Tests
